@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/allAlbumsFragment">
+
+    <fragment
+        android:id="@+id/allAlbumsFragment"
+        android:name="com.example.gallery.AllAlbumsFragment"
+        android:label="@string/albums"
+        tools:layout="@layout/all_albums_fragment_list">
+        <action
+            android:id="@+id/action_allAlbumsFragment_to_allPhotosFragment"
+            app:destination="@id/allPhotosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/allPhotosFragment"
+        android:name="com.example.gallery.AllPhotosFragment"
+        android:label="@string/all_photos"
+        tools:layout="@layout/all_photos_fragment_list" >
+        <action
+            android:id="@+id/action_allPhotosFragment_to_allAlbumsFragment"
+            app:destination="@id/allAlbumsFragment" />
+        <action
+            android:id="@+id/action_allPhotosFragment_to_fullscreenPicture"
+            app:destination="@id/fullscreenPicture" />
+        <argument
+            android:name="albumName"
+            app:argType="string" />
+        <argument android:name="bucketID" />
+        <argument
+            android:name="amountOfItems"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/fullscreenPicture"
+        android:name="com.example.gallery.FullscreenPictureFragment"
+        android:label="@string/fullscreen_picture"
+        tools:layout="@layout/fullscreen_picture_fragment" >
+        <action
+            android:id="@+id/action_fullscreenPicture_to_allPhotosFragment"
+            app:destination="@id/allPhotosFragment" />
+        <argument
+            android:name="mediaUri"
+            app:argType="string" />
+        <argument
+            android:name="mediaPath"
+            app:argType="string" />
+        <argument
+            android:name="mediaDur"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_fullscreenPicture_to_photoStoryFragment"
+            app:destination="@id/photoStoryFragment" />
+        <argument
+            android:name="positionPicture"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/photoStoryFragment"
+        android:name="com.example.gallery.PhotoStoryFragment"
+        android:label="@string/photo_comment"
+        tools:layout="@layout/photo_story_fragment" >
+        <argument
+            android:name="mediaUri"
+            app:argType="string" />
+        <argument
+            android:name="mediaPath"
+            app:argType="string" />
+        <argument android:name="mediaDur"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_photoStoryFragment_to_fullscreenPicture"
+            app:destination="@id/fullscreenPicture" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchPhotoOnCommentFragment"
+        android:name="com.example.gallery.SearchPhotoOnCommentFragment"
+        android:label="@string/search_photo_on_comment_fragment"
+        tools:layout="@layout/search_photo_on_comment_fragment" >
+        <action
+            android:id="@+id/action_searchPhotoOnCommentFragment_to_fullscreenPicture"
+            app:destination="@id/fullscreenPicture" />
+    </fragment>
+</navigation>

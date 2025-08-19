@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SearchPhotoOnCommentFragment"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/counter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Найдено: 0"
+        android:textSize="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/idSearch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/idSearch"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <CheckBox
+        android:id="@+id/idCbRegx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/check_register"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idSearch" />
+
+    <EditText
+        android:id="@+id/idSearch"
+        android:layout_width="0dp"
+        android:layout_height="46dp"
+        android:hint="@string/write_comment"
+        android:singleLine="true"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toStartOf="@+id/idExitBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/idExitBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="#00FFFFFF"
+        android:text="@string/cancel"
+        android:textColor="@color/light_blue_600"
+        app:layout_constraintBottom_toBottomOf="@+id/idSearch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_find_photos"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idCbRegx"
+        app:spanCount="4"
+        tools:listitem="@layout/item_thumbnail" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
